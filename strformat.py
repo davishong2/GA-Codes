@@ -1,7 +1,7 @@
 # fn = input('First name: ')
 # ln = input('Last name: ')
 fn = "Davis"
-ln "Hong"
+ln = "Hong"
 msg = 'Your name is %s %s' % (fn, ln)
 print(msg)
 msg = "Your name is {firstname} {lastname}".format (firstname = fn, lastname = ln)
@@ -14,4 +14,4 @@ print(msg.substitute(fn=fn, ln=ln))
 a = ["a","b","c"]
 b = [1,2,3]
 for i, j in zip(a,b):
-    print(f'List a is {i} and list b i {j}')
+    print(f'List a is {i} and list b is {j}')
