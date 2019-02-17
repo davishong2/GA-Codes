@@ -1,0 +1,328 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<img src=\"http://imgur.com/1ZcRyrc.png\" style=\"float: left; margin: 20px; height: 55px\">\n",
+    "\n",
+    "## Practice Python Functions\n",
+    "\n",
+    "_Author: Ryan Dunlap | DSI-SF_\n",
+    "\n",
+    "---"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Resources - Potentially Helpful Functions\n",
+    "\n",
+    "* [Dictionary Comprehension](https://docs.python.org/2/tutorial/datastructures.html#dictionaries)\n",
+    "* [Enumerate](https://docs.python.org/2/library/functions.html#enumerate)\n",
+    "* [Length](https://docs.python.org/2/library/functions.html#len)\n",
+    "* [Int](https://docs.python.org/2/library/functions.html#int)\n",
+    "* [List](https://docs.python.org/2/library/functions.html#list)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now-a-days, most of the components of the `String` module are already built into python however, it still has several [constant values](https://docs.python.org/2/library/string.html#string-constants) which can be useful, such as:\n",
+    "```python\n",
+    "string.ascii_uppercase\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import string\n",
+    "\n",
+    "string.ascii_uppercase"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "\n",
+    "### 1. Write a function that takes the length of a side of a square as an argument and returns the area of the square."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "36\n"
+     ]
+    }
+   ],
+   "source": [
+    "# A: Area is Length x Breath. Since square has equal sides, simply square one of the sides to get area. \n",
+    "def CalculateAreaofSq(l):\n",
+    "    return l ** 2\n",
+    "\n",
+    "print(CalculateAreaofSq(6))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "\n",
+    "### 2. Write a function that takes the heigth and width of a triangle and returns the area."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "13905.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "# A: Area of triangle = 1/2 x base x height.\n",
+    "def AreaofTriangle(b, h):\n",
+    "    return 0.5 * b * h\n",
+    "\n",
+    "print(AreaofTriangle(203, 137))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "\n",
+    "### 3. Write a function that takes a string as an argument and returns a tuple consisting of two elements:\n",
+    "- **A list of all the characters in the string.** \n",
+    "- **A count of the number of characters in the string.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('The quick brown fox jumps over the lazy dog', 43)\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "tuple"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# A: Function to use the arguments to create tuple.\n",
+    "def TuplePacker(string):\n",
+    "    t = string, len(string)\n",
+    "    return t\n",
+    "\n",
+    "t = TuplePacker(\"The quick brown fox jumps over the lazy dog\")\n",
+    "print(t)\n",
+    "type(t)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "\n",
+    "### 4. Write a function that takes two integers, passed as strings, and returns the sum, difference, and product as a tuple (all values as integers)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sum of 4 + 3 is 7, difference between 4 - 3 is 1 and the product of 4 x 3 is 12\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "tuple"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# A: Takes two integers, passed as strings, and returns the sum, difference, and product \n",
+    "# as a tuple (all values as integers).\n",
+    "def BasicMathOps(x, y):\n",
+    "    x = int(x)\n",
+    "    y = int(y)\n",
+    "    return(x + y, x - y, x * y)\n",
+    "\n",
+    "results = BasicMathOps(\"4\",\"3\")\n",
+    "print(f\"Sum of 4 + 3 is {results[0]}, difference between 4 - 3 is {results[1]} and the product of 4 x 3 is {results[2]}\")\n",
+    "type(results)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "\n",
+    "### 5. Write a function that takes a list as the argument and returns a tuple consisting of two elements:\n",
+    "- **A list with the items in reverse order.**  \n",
+    "- **A list of the items in the original list that have an odd index.**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(['Fig', 'Melon', 'Grapes', 'Pear', 'Banana', 'Orange', 'Apple'], ['Apple', 'Banana', 'Grapes', 'Fig'])\n"
+     ]
+    }
+   ],
+   "source": [
+    "# A: Write a function taking in a list as argument and return tuple consisting of 2 elements;\n",
+    "# a list with items in reverse order and a list of items in the original list that have an odd index.\n",
+    "def TuplePacker(strlist):\n",
+    "    oddlist = \"\"\n",
+    "    if len(strlist) > 0:\n",
+    "        oddlist = strlist[1::2] # [1::2] is to select all items but skipped an item like 1,3,5 or 2,4,6.\n",
+    "    else:\n",
+    "        oddlist = \"\" # If there is only 1 item in the list then there should not have any odd indexed item.\n",
+    "    return (strlist[::-1], oddlist) # [::-1] arrange items in a list in reverse order.\n",
+    "\n",
+    "List = [\"Apple\", \"Orange\", \"Banana\", \"Pear\", \"Grapes\", \"Melon\", \"Fig\"]\n",
+    "tl = TuplePacker(List)\n",
+    "print(tl)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "\n",
+    "### Challenge Problem: Write a function that returns the score for a word.  The score of the word is the sum of the scores of its letters. Each letter's score is equal to it's position in the alphabet.\n",
+    "\n",
+    "So, for example:\n",
+    "\n",
+    "* A = 1, B = 2, C = 3, D = 4, E = 5\n",
+    "* abe = 8 = (1 + 2 + 5)\n",
+    "\n",
+    "\n",
+    "_Hint: The string library has a property_ `ascii_lowercase` _that can save some typing here._\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 87,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "100\n",
+      "81\n"
+     ]
+    }
+   ],
+   "source": [
+    "# A: Challenge Problem: Write a function that returns the score for a word. \n",
+    "# The score of the word is the sum of the scores of its letters. \n",
+    "# Each letter's score is equal to it's position in the alphabet.\n",
+    "def WordScore(word):\n",
+    "    word = word.upper()\n",
+    "    c = 0\n",
+    "    for i in word:\n",
+    "        c += ord(i)\n",
+    "    c = c - len(word) * 64\n",
+    "    return c\n",
+    "\n",
+    "print(WordScore(\"tElePHoNe\")) # Ans: 100\n",
+    "print(WordScore('ElephANt')) # Ans: 81"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 1
+}
